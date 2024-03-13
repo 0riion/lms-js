@@ -8,45 +8,30 @@ class Book {
   }
 
   getInfo() {
-    return (
-      "Title: " +
-      this.title +
-      ", Author: " +
-      this.author +
-      ", Pages: " +
-      this.numPages
-    );
+    return `Title: ${this.title}, Author: ${this.author}, Pages: ${this.numPages}`;
   }
 }
 
 class Library {
   constructor() {
-    this.booksList = [];
+    this.books = [];
   }
 
   addBook(book) {
-    this.booksList.push(book);
+    this.books.push(book);
   }
 
-  searchBooksByAuthor(author) {
-    var booksByAuthor = [];
-    for (var i = 0; i < this.booksList.length; i++) {
-      if (this.booksList[i].author === author) {
-        booksByAuthor.push(this.booksList[i]);
-      }
-    }
-    return booksByAuthor;
+  searchByAuthor(author) {
+    return this.books.filter((book) => book.author === author);
   }
 
   displayBooks() {
     console.log("List of books in the library:");
-    for (var i = 0; i < this.booksList.length; i++) {
-      console.log(this.booksList[i].getInfo());
-    }
+    this.books.forEach((book) => console.log(book.getInfo()));
   }
 }
 
-function mainLibrary() {
+function main() {
   var mainLibrary = new Library();
 
   mainLibrary.addBook(
@@ -68,4 +53,4 @@ function mainLibrary() {
   }
 }
 
-mainLibrary();
+main();
