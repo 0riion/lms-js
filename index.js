@@ -1,7 +1,7 @@
 const Book = require("./src/book");
 const Library = require("./src/library");
 
-function main() {
+(function () {
   var mainLibrary = new Library();
 
   mainLibrary.addBook(
@@ -16,11 +16,10 @@ function main() {
   mainLibrary.displayBooks();
 
   var author = "Gabriel García Márquez";
-  var booksByAuthorFound = mainLibrary.searchBooksByAuthor(author);
+  var booksByAuthorFound = mainLibrary.searchByAuthor(author);
+
   console.log("Books written by " + author + ":");
   for (var i = 0; i < booksByAuthorFound.length; i++) {
     console.log(booksByAuthorFound[i].getInfo());
   }
-}
-
-main();
+})();
