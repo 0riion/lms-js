@@ -1,35 +1,5 @@
-//The exercise simulates a library management system, allowing you to add books, search for books by author, and display the list of books in the library.
-
-class Book {
-  constructor(title, author, numPages) {
-    this.title = title;
-    this.author = author;
-    this.numPages = numPages;
-  }
-
-  getInfo() {
-    return `Title: ${this.title}, Author: ${this.author}, Pages: ${this.numPages}`;
-  }
-}
-
-class Library {
-  constructor() {
-    this.books = [];
-  }
-
-  addBook(book) {
-    this.books.push(book);
-  }
-
-  searchByAuthor(author) {
-    return this.books.filter((book) => book.author === author);
-  }
-
-  displayBooks() {
-    console.log("List of books in the library:");
-    this.books.forEach((book) => console.log(book.getInfo()));
-  }
-}
+const Book = require("./src/book");
+const Library = require("./src/library");
 
 function main() {
   var mainLibrary = new Library();
